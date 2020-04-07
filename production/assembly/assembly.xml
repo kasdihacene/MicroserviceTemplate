@@ -1,0 +1,28 @@
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.0.0 http://maven.apache.org/xsd/assembly-2.0.0.xsd">
+    <id>spring-template</id>
+    <formats>
+        <format>zip</format>
+    </formats>
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <baseDirectory>${artifactId}</baseDirectory>
+    <fileSets>
+        <fileSet>
+            <directory>../production/resources</directory>
+            <outputDirectory>.</outputDirectory>
+
+            <includes>
+                <include>logback.xml</include>
+                <include>application.properties</include>
+            </includes>
+        </fileSet>
+    </fileSets>
+    <files>
+        <file>
+            <source>target/${artifactId}-${version}.${packaging}</source>
+            <outputDirectory>.</outputDirectory>
+            <destName>webapp-template.jar</destName>
+        </file>
+    </files>
+</assembly>
